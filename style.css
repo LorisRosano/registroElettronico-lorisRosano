@@ -1,0 +1,122 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+html{
+    width: 100vw;
+    height: 100vh;
+}
+body{
+    font-family: Poppins;
+    width: 100vw;    
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(180deg, #e22727, #ff7777, #b41111);
+    background-size: 400% 400%;
+    -webkit-animation: gradient 15s ease infinite;
+    -moz-animation: gradient 15s ease infinite;
+    animation: gradient 15s ease infinite;
+    
+
+}
+
+@-webkit-keyframes gradient {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+@-moz-keyframes gradient {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+@keyframes gradient {
+    0%{background-position:50% 0%}
+    50%{background-position:51% 100%}
+    100%{background-position:50% 0%}
+}
+#titolo{
+    text-align: center;
+    font-size: 50px;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(rgb(255, 16, 16),rgba(0, 0, 0, 0.9));
+    margin-top: 50px;
+}
+#divPadre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 300px;
+    margin-top: 50px;
+    width: 100vw;
+
+}
+#divStudente{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+
+}
+
+#divDocente{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+.imgUtente{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid red;
+}
+#btnLoginDocente, #btnLoginStudente{
+    margin-top: 50px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid #FFFFFFd2;
+    background-color: #FFFFFF50;
+    color: #FFFFFFd2;
+    font-size: 20px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: .2s transform ease-in-out;
+}
+button > .barra{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 0;
+    background-color: #ff0000b0;
+    transition: all 0.5s ease;
+    border-radius: 10px;
+    z-index: 0;
+}
+button:hover > .barra{
+    max-width: 100%;
+    
+}
+button:hover + .imgUtente{
+    transform: scale(1.1);
+}
+#btnLoginDocente:hover, #btnLoginStudente:hover{
+    transform: scale(1.1);
+}
+.textBtnLogin{
+    position: relative;
+    z-index: 1;
+}
+.sus{
+    transform: scale(150);
+}
