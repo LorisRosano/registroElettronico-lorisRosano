@@ -13,15 +13,29 @@
     <span class="material-symbols-outlined" id="btnHome" onclick="ritornaHome()">
         home
     </span>
+    <h1 class="titolo"> Registro Elettronico </h1>
+    <h2> Studente </h2>
+    <br>
+    <div id="divLogin">
+        <h3>Effettua il login</h3>
+        <input type="text" class="inputLogin" id="codFiscaleScuola" readonly="true" placeholder="83003390040" onclick="animationInput($(this))">
+        <div id="divCodiceUtente">
+            <input type="text" class="inputLogin" id="codiceUtente" onclick="animationInput($(this))">
+        </div>
+        <div id="divPassword">
+            <input type="text" class="inputLogin" id="password" onclick="animationInput($(this))">
+        </div>
+        
+    </div>
     <?php
         echo "<h1 class='titolo'> Registro Elettronico </h1>";
         echo "<h2> Studente </h2>";
         echo "<br>";
         echo "<div id='divLogin'>";
         echo "<h3> Effettua il Login </h3>";
-        echo "<input class='inputLogin' type='text' id='codFiscaleScuola' readonly='true' placeholder='83003390040'> </input>";
-        echo "<input class='inputLogin' type='text' id='codiceUtente' placeholder='codice utente...'> </input>";
-        echo "<input class='inputLogin' type='password' id='password' placeholder='password...'> </input>";
+        echo "<input class='inputLogin' type='text' id='codFiscaleScuola' readonly='true' placeholder='83003390040' onclick='animationInput($(this))'> </input>";
+        echo "<div class='div'> <span class='material-symbols-outlined'> person </span> <input class='inputLogin' type='text' id='codiceUtente' onclick='animationInput($(this))' >  </input> </div>";
+        echo "<input class='inputLogin' type='password' id='password' onclick='animationInput($(this))'> </input>";
         echo "<button id='btnLogin' onclick='loginStudente()'> </button>";
         echo "</div>";
     ?>
