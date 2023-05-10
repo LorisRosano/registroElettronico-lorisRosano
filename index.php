@@ -9,12 +9,12 @@
     <title>Registro Elettronico</title>
 </head>
 <body>
-<h1 id="titolo">Registro Elettronico</h1>
+<h1 class="titolo">Registro Elettronico</h1>
     <div id="divPadre">
         <?php
             echo "<div id='divStudente' class='divLogin'>";
             echo "<img src='img/user.jpg' alt='utente' class='imgUtente'>";
-            echo "<button class='btnLogin' id='btnLoginStudente' onclick='loginStudente()'>";
+            echo "<button class='btnLogin' id='btnLoginStudente' onclick='apriPaginaLoginStudente()'>";
             echo "<span class='textBtnLogin'> Login Studente </span> <div class='barra'> </button>";
             echo "</div>";
 

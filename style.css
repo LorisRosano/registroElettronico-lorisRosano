@@ -5,6 +5,13 @@
     padding: 0;
     border: 0;
 }
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
 html{
     width: 100vw;
     height: 100vh;
@@ -14,11 +21,11 @@ body{
     width: 100vw;    
     height: 100vh;
     overflow: hidden;
-    background: linear-gradient(180deg, #e22727, #ff7777, #b41111);
+    background: linear-gradient(180deg, #e22727, #ce3e3e, #b41111);
     background-size: 400% 400%;
-    -webkit-animation: gradient 15s ease infinite;
-    -moz-animation: gradient 15s ease infinite;
-    animation: gradient 15s ease infinite;
+    -webkit-animation: gradient 10s ease infinite;
+    -moz-animation: gradient 10s ease infinite;
+    animation: gradient 10s ease infinite;
     
 
 }
@@ -38,7 +45,7 @@ body{
     50%{background-position:51% 100%}
     100%{background-position:50% 0%}
 }
-#titolo{
+.titolo{
     text-align: center;
     font-size: 50px;
     color: transparent;
@@ -120,3 +127,60 @@ button:hover + .imgUtente{
 .sus{
     transform: scale(150);
 }
+h2{
+    text-align: center;
+    font-size: 40px;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(rgb(255, 16, 16),rgba(0, 0, 0, 0.9));
+}
+#divLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 140px;
+    width: 100vw;
+    font-size: 25px;
+}
+.inputLogin{
+    /* background: transparent; */
+    width: 12vw;
+    height: 3vh;
+    border-radius: 10px;
+}
+#btnHome{
+    font-size: 4vw;
+    margin-left: 1vw;
+    margin-top: 1vw;
+    cursor: pointer;
+}
+#btnHome:hover{
+    animation: animHomeHoverIN 1s forwards;
+}
+@keyframes animHomeHoverIN{
+    0%{
+        transform: scale(100%);
+        background-color: transparent;
+    }
+    100%{
+        transform: scale(120%);
+        background-color: rgb(255, 16, 16);
+    }
+}
+#btnHome:not(:hover){
+    animation: animHomeHoverOUT 1s forwards;
+}
+@keyframes animHomeHoverOUT{
+    0%{
+        transform: scale(120%);
+        background-color: rgb(255, 16, 16);
+    }
+    100%{
+        transform: scale(100%);
+        background-color: transparent;
+    }
+}
+
+

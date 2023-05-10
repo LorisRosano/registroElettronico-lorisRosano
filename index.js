@@ -5,6 +5,9 @@ window.onload = () => {
     $(".btnLogin").on("mouseover", () => {sus(this)});
     $(".btnLogin").on("mouseout", () => {sus(this)});
 };
-function loginStudente(){
-    window.location.href = "studente.html";
+function apriPaginaLoginStudente(){
+    window.location = "studente.php";
+}
+function ritornaHome(){
+    window.location = "index.php";
 }
