@@ -21,7 +21,7 @@ body{
     width: 100vw;    
     height: 100vh;
     overflow: hidden;
-    background: linear-gradient(180deg, #e22727, #ce3e3e, #b41111);
+    background: linear-gradient(180deg, #474E68, #50577A, #6B728E);
     background-size: 400% 400%;
     -webkit-animation: gradient 10s ease infinite;
     -moz-animation: gradient 10s ease infinite;
@@ -48,9 +48,8 @@ body{
 .titolo{
     text-align: center;
     font-size: 50px;
-    color: transparent;
-    -webkit-background-clip: text;
-    background-image: linear-gradient(rgb(255, 16, 16),rgba(0, 0, 0, 0.9));
+
+    box-shadow: #404258 3px 3px 10px !important;
     margin-top: 50px;
 }
 #divPadre{
@@ -83,7 +82,7 @@ body{
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    border: 2px solid red;
+    border: 2px solid #50577A;
 }
 #btnLoginDocente, #btnLoginStudente{
     margin-top: 50px;
@@ -105,7 +104,7 @@ button > .barra{
     left: 0;
     width: 100%;
     max-width: 0;
-    background-color: #ff0000b0;
+    background-color: #404258;
     transition: all 0.5s ease;
     border-radius: 10px;
     z-index: 0;
@@ -132,7 +131,7 @@ h2{
     font-size: 40px;
     color: transparent;
     -webkit-background-clip: text;
-    background-image: linear-gradient(rgb(255, 16, 16),rgba(0, 0, 0, 0.9));
+    background-image: linear-gradient(#404258,#6B728E);
 }
 #divLogin{
     display: flex;
@@ -150,7 +149,7 @@ h2{
     height: 6vh;
     border-radius: 100px;
     text-align: center;
-    border: solid 3px red;
+    border: solid 3px #474E68;
 }
 #btnHome{
     font-size: 4vw;
@@ -168,7 +167,7 @@ h2{
     }
     100%{
         transform: scale(120%);
-        background-color: rgb(255, 16, 16);
+        background-color: #404258;
     }
 }
 #btnHome:not(:hover){
@@ -177,7 +176,7 @@ h2{
 @keyframes animHomeHoverOUT{
     0%{
         transform: scale(120%);
-        background-color: rgb(255, 16, 16);
+        background-color: #404258;
     }
     100%{
         transform: scale(100%);
