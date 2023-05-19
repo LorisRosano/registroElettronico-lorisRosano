@@ -23,15 +23,15 @@ body{
     overflow: hidden;
     background: linear-gradient(180deg, #474E68, #50577A, #6B728E);
     background-size: 400% 400%;
-    -webkit-animation: gradient 10s ease infinite;
-    -moz-animation: gradient 10s ease infinite;
-    animation: gradient 10s ease infinite;
+    -webkit-animation: gradient 5s ease infinite;
+    -moz-animation: gradient 5s ease infinite;
+    animation: gradient 5s ease infinite;
     
 
 }
 
 @-webkit-keyframes gradient {
-    0%{background-position:50% 0%}
+    0%{background-position:50% 0%;}
     50%{background-position:51% 100%}
     100%{background-position:50% 0%}
 }
@@ -48,9 +48,30 @@ body{
 .titolo{
     text-align: center;
     font-size: 50px;
-
-    box-shadow: #404258 3px 3px 10px !important;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(#404258,#6B728E);
+    filter: drop-shadow(0px 0px 10px #ffffffa4);
     margin-top: 50px;
+}
+#titolo2{
+    text-align: center;
+    font-size: 50px;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(#404258,#6B728E);
+    filter: drop-shadow(0px 0px 10px #ffffffa4);
+    margin-top: -50px;
+    z-index: -1;
+}
+#titolo22{
+    text-align: center;
+    font-size: 50px;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(#404258,#6B728E);
+    filter: drop-shadow(0px 0px 10px #ffffffa4);
+    z-index: -1;
 }
 #divPadre{
     display: flex;
@@ -139,7 +160,6 @@ h2{
     align-items: center;
     flex-direction: column;
     gap: 30px;
-    margin-top: 140px;
     width: 100vw;
     font-size: 25px;
 }
@@ -156,6 +176,7 @@ h2{
     margin-left: 1vw;
     margin-top: 1vw;
     cursor: pointer;
+    z-index: 2;
 }
 #btnHome:hover{
     animation: animHomeHoverIN 1s forwards;
@@ -182,6 +203,150 @@ h2{
         transform: scale(100%);
         background-color: transparent;
     }
+}
+#codiceUtente{
+    position: relative;
+}
+#iconUser{
+    position: absolute;
+    height: 20px;
+    aspect-ratio: 1/1;
+    z-index: 1;
+    left: calc(50% - 11px);
+    top: 50%;
+}
+#divAiuto{
+    text-align: center;
+    font-size: 20px;
+    color: #404258;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.nascosto{
+    display: none !important;
+}
+
+.login-container {
+    width: 300px;
+    padding: 20px;
+    background-color: #6B728E;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 15vh;
+  }
+  
+  .login-container input,
+  .login-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .login-container input {
+    background-color: #50577A;
+    border: 1px solid #ddd;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .login-container input:focus {
+    border-color: #0088cc;
+  }
+  
+  .login-container input::placeholder {
+    color: white;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .login-container input:focus::placeholder {
+    color: transparent;
+  }
+  
+  .login-container button {
+    background-color: #6B728E;
+    filter: drop-shadow(0px 0px 10px #ffffffd7);
+    color: #404258;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .login-container button:hover {
+    background-color: #404258;
+    color: white;
+  }
+  
+  .login-container button:active {
+    background-color: #404258;
+  }
+
+
+@media screen and (width<=800px) {
+    #divPadre{
+        flex-direction: column;
+        gap: 50px;
+        margin-top: 10vh;
+    }
+    #divStudente, #divDocente{
+        margin-top: 0;
+    }
+    #divStudente > h2, #divDocente > h2{
+        font-size: 30px;
+    }
+    #divStudente > .imgUtente, #divDocente > .imgUtente{
+        width: 150px;
+        height: 150px;
+    }
+    #divStudente > button, #divDocente > button{
+        width: 150px;
+        height: 40px;
+        font-size: 15px;
+    }
+    #divLogin{
+        font-size: 15px;
+    }
+    .inputLogin{
+        width: 10vw;
+        height: 4vh;
+    }
+    .inputs{
+        height: 5vh;
+    }
+    #btnHome{
+        font-size: 8vw;
+    }
+    #login-btn{
+        height: 5vh;
+    }
+    .login-container {
+        width: 80vw;
+        height: 18vh;
+        padding: 10px;
+        margin-top: 20vh;
+    }
+    .login-container input,
+    .login-container button {
+        padding: 5px;
+        margin-bottom: 10px;
+        font-size: 10px;
+    }
+    .login-container input::placeholder {
+        font-size: 10px;
+    }
+    .login-container button {
+        font-size: 10px;
+    }
+
+    .titolo{
+        margin-top: 2vh;
+    }
+    #titolo22, #titolo2{
+        margin-top: 2vh;
+    }
+    
 }
 
 
