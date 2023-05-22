@@ -27,17 +27,5 @@
         </div>
         
     </div>
-    <?php
-        echo "<h1 class='titolo'> Registro Elettronico </h1>";
-        echo "<h2> Studente </h2>";
-        echo "<br>";
-        echo "<div id='divLogin'>";
-        echo "<h3> Effettua il Login </h3>";
-        echo "<input class='inputLogin' type='text' id='codFiscaleScuola' readonly='true' placeholder='83003390040' onclick='animationInput($(this))'> </input>";
-        echo "<div class='div'> <span class='material-symbols-outlined'> person </span> <input class='inputLogin' type='text' id='codiceUtente' onclick='animationInput($(this))' >  </input> </div>";
-        echo "<input class='inputLogin' type='password' id='password' onclick='animationInput($(this))'> </input>";
-        echo "<button id='btnLogin' onclick='loginStudente()'> </button>";
-        echo "</div>";
-    ?>
 </body>
 </html>

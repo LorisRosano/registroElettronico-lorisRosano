@@ -5,8 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="index.js"></script>
+    <script src="libreria.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Registro Elettronico - Studente</title>
 </head>
 <body>
@@ -20,7 +23,7 @@
         <div class="login-container">
             <input type="text" id="username" placeholder="Codice utente" class="inputs">
             <input type="password" id="password" placeholder="Password" class="inputs">
-            <button id="login-btn" onclick="loginStudente()">Accedi</button>
+            <button id="login-btn">Accedi</button>
             <div id="divAiuto">
                 <a onclick="cambiaPassword()"> Password dimenticata?</a>
             </div>
