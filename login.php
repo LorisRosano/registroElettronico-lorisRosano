@@ -1,9 +1,12 @@
 <?php
   require("server/MySQLi.php");
   $connection = openConnection("registroElettronico");
-  if(isset($_POST["user"]) && isset($_POST["pass"])){
-    $username = $_POST["user"];
-    $password = $_POST["pass"];
+  if(isset($_GET["user"]) && isset($_GET["pass"])){
+    $username = $_GET["user"];
+    $password = $_GET["pass"];
+  }
+  else{
+    die("Parametri mancanti");
   }
 
   $sql = "SELECT * FROM studenti WHERE user = '$username' AND pass = '$password'";

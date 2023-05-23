@@ -5,11 +5,9 @@ window.onload = () => {
     $(".btnLogin").on("mouseover", () => {sus(this)});
     $(".btnLogin").on("mouseout", () => {sus(this)});
     $("#login-btn").on("click", () => {
-        //Controlla che i campi siano stati riempiti
         let username = $("#username").val();
         let password = $("#password").val();
         if(username === "" || password === ""){
-            //Crea uno sweatalert che segnala di compilare tutti i campi con sfondo #474E68
             swal({
                 title: "Attenzione!",
                 text: "Compilare tutti i campi!",
@@ -21,18 +19,42 @@ window.onload = () => {
                 className: "swal-bg-red"
             });
             return;
-        }
-        //Effettua il controllo all'interno del database registroElettronico.sql per verificare che l'utente sia registrato
-        inviaRichiesta("GET", "login.php", {"user": username, "pass": password}
+        } 
+        inviaRichiesta("GET", "login.php", {"user": username, "pass": CryptoJS.MD5(password)}
         ).then((response) => {
-            console.log(response.data);
+            response = response.data;
+            if(response.length == 0){
+                swal({
+                    title: "Attenzione!",
+                    text: "Password o codice utente errati!",
+                    icon: "error",
+                    button: "Ok",
+                    timer: 3000,
+                    closeOnClickOutside: false,
+                    closeOnEsc: false,
+                    className: "swal-bg-red"
+                });
+                return;
+            }
+            else{           
+                swal({
+                    title: "Benvenuto!",
+                    text: "Login effettuato con successo!",
+                    icon: "success",
+                    button: "Ok",
+                    timer: 3000,
+                    closeOnClickOutside: false,
+                    closeOnEsc: false,
+                    className: "swal-bg-red"
+                });
+                setTimeout(() => {
+                    window.location = "paginaStudente.html";
+                }, 1000);
+
+                
+            }
         })
-        .catch(errore);
-
-        window.location = "paginaStudente.html";
-        
-
-        
+        .catch(errore);    
     });
 };
 function apriPaginaLoginStudente(){

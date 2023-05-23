@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -16,6 +17,7 @@
     <span class="material-symbols-outlined" id="btnHome" onclick="ritornaHome()">
         home
     </span>
+    
     <h1 id="titolo2"> Registro Elettronico </h1>
     <h2 id="titolo22"> Studente </h2>
     <br>
@@ -24,14 +26,6 @@
             <input type="text" id="username" placeholder="Codice utente" class="inputs">
             <input type="password" id="password" placeholder="Password" class="inputs">
             <button id="login-btn">Accedi</button>
-            <div id="divAiuto">
-                <a onclick="cambiaPassword()"> Password dimenticata?</a>
-            </div>
-        </div>
-        <div class="divCambiaPassword nascosto">
-            <input type="text" id="txtPasswordNuova" placeholder="Nuova Password" class="inputs">
-            <input type="text" id="txtPasswordNuovaRipeti" placeholder="Ripeti Password" class="inputs">
-            <button id="btnAggiornaPassword" onclick="aggiornaPassword()">Cambia password</button>
         </div>
     </div>
 
