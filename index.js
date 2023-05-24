@@ -1,4 +1,13 @@
 window.onload = () => {
+
+
+    
+    $(".divsSelezione").on("click", function(){
+        let divSelezionato = $("#divSelezionato");
+        divSelezionato.animate({height: "50vh", width: "98.7vw", left: "-63vh", top: "20vh"}, 1000);
+        $("#divSinistra").animate({transform: "translateX(-50vh)"}, 1000);
+        $("#divDestra").animate({left: "50vw"}, 1000);
+    });
     function sus(btn){
         $(".btnLogin").siblings("imgUtente").toggleClass("sus");
     }
@@ -56,6 +65,8 @@ window.onload = () => {
         })
         .catch(errore);    
     });
+
+    
 };
 function apriPaginaLoginStudente(){
     window.location = "studente.html";
@@ -73,6 +84,10 @@ function cambiaPassword(){
         console.log(aus);
     });
     divLogin.animate({height: "toggle", opacity: "toggle"}, "slow");
+}
+function apriDivSelezionato(){
+   
+    
 }
 
 

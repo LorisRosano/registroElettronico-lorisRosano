@@ -345,7 +345,7 @@ h2{
     width: 68vw;
     height: 38vh;
     margin-top: 1vh;
-    margin-left: 63vh;
+    margin-left: 64vh;
     background-color: #474E68;
     border-radius: 20px;
     animation-name: animDestra;
@@ -380,7 +380,7 @@ h2{
     margin-top: 7vh;
     margin-right: 20px;
 
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.09);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6px);
@@ -417,6 +417,7 @@ h2{
 #userImg{
     margin-left: 15%;
     margin-top:20%;
+    -webkit-user-drag: none;
 }
 #divMaterie{
     
@@ -424,7 +425,72 @@ h2{
 
 .testoSelezione{
     position: absolute;
+    margin-left: 4vh;
+    margin-top: 1vh;
+    font-size: 30px;
+    background-image: linear-gradient(#404258,#6B728E);
+    filter: drop-shadow(0px 0px 10px #ffffffa4);
+    color: transparent;
+    -webkit-background-clip: text;
+    width: 9vw;
+    height: 23vh;
+    opacity: 0%;
 }
+#txtAssenze{
+    margin-left: 5.5vh; 
+}
+#txtMaterie{
+    margin-left: 6vh; 
+}
+.testoSelezione:hover{
+    animation: animTestoSelezione 0.5s forwards;
+}
+@keyframes animTestoSelezione {
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+.testoSelezione:not(:hover){
+    animation: animNotTestoSelezione 0.5s forwards;
+}
+@keyframes animNotTestoSelezione {
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
+#divSelezionato{
+    width: 68vw;
+    height: 59vh;
+    border: 1px solid black;
+    position: absolute;
+    margin-top: 20vh;
+    bottom: 0;
+    left: 64vh;
+    background-color: #474E68;
+    border-radius: 20px;
+    animation-name: animSelezionato;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    flex-direction: row;
+    animation: animDivSelezionato 2s forwards;
+}
+
+@keyframes animDivSelezionato {
+    0%{
+        top: 200vw;
+    }
+    100%{
+        top: 0;
+    }
+}
+
 
 
 @media screen and (width<=800px) {
