@@ -13,13 +13,13 @@
     <div id="divPadre">
         <?php
             echo "<div id='divStudente' class='divLogin'>";
-            echo "<img src='img/user.jpg' alt='utente' class='imgUtente'>";
+            echo "<img src='img/user.png' alt='utente' class='imgUtente'>";
             echo "<button class='btnLogin' id='btnLoginStudente' onclick='apriPaginaLoginStudente()'>";
             echo "<span class='textBtnLogin'> Login Studente </span> <div class='barra'> </button>";
             echo "</div>";
 
             echo "<div id='divDocente' class='divLogin'>";
-            echo "<img src='img/user.jpg' alt='utente' class='imgUtente'>";
+            echo "<img src='img/user.png' alt='utente' class='imgUtente'>";
             echo "<button class='btnLogin' id='btnLoginDocente' onclick='loginDocente()'>";
             echo " <span class='textBtnLogin'> Login Docente </span> <div class='barra'> </button>";
             echo "</div>";

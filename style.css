@@ -339,6 +339,91 @@ h2{
 }
 
 #divDestra{
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    width: 68vw;
+    height: 38vh;
+    margin-top: 1vh;
+    margin-left: 63vh;
+    background-color: #474E68;
+    border-radius: 20px;
+    animation-name: animDestra;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    flex-direction: row;
+
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.41);
+
+    gap: 10vh;
+}
+
+@keyframes animDestra {
+    0%{
+        left: 200vw;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+.divsSelezione{
+    width: 12vw;
+    height: 25vh;
+    background-color: red;
+    margin-left: 20px;
+    margin-top: 7vh;
+    margin-right: 20px;
+
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.41);
+}
+.divsSelezione:hover{
+    animation: animZoomDivs 0.5s forwards;
+}
+@keyframes animZoomDivs{
+    0%{
+        transform: scale(100%);
+    }
+    100%{
+        transform: scale(110%);
+    }
+}
+
+.divsSelezione:not(:hover){
+    animation: animNotZoomDivs 0.5s forwards;
+}
+@keyframes animNotZoomDivs{
+    0%{
+        transform: scale(110%);
+    }
+    100%{
+        transform: scale(100%);
+    }
+}
+#divAnagrafico{
+    display: flex;
+    justify-content: flex-start;
+}
+#userImg{
+    margin-left: 15%;
+    margin-top:20%;
+}
+#divMaterie{
+    
+}
+
+.testoSelezione{
+    position: absolute;
 }
 
 
