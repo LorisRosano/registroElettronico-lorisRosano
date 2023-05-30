@@ -289,14 +289,14 @@ h2{
     position: absolute;
     display: flex;
     justify-content: flex-start;
-    width: 30vw;
+    width: 25vw;
     height: 98vh;
     margin-top: 1vh;
     margin-left: 1vh;
     background-color: #474E68;
     border-radius: 20px;
     animation-name: animSinistra;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
     flex-direction: column;
 
@@ -342,14 +342,14 @@ h2{
     position: absolute;
     display: flex;
     justify-content: flex-start;
-    width: 68vw;
+    width: 73vw;
     height: 38vh;
     margin-top: 1vh;
-    margin-left: 64vh;
+    margin-left: 52vh;
     background-color: #474E68;
     border-radius: 20px;
     animation-name: animDestra;
-    animation-duration: 2s;
+    animation-duration: 3s;
     animation-fill-mode: forwards;
     flex-direction: row;
 
@@ -360,7 +360,7 @@ h2{
     -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.41);
 
-    gap: 10vh;
+    gap: 0vh;
 }
 
 @keyframes animDestra {
@@ -442,6 +442,12 @@ h2{
 #txtMaterie{
     margin-left: 6vh; 
 }
+#txtVoti{
+    margin-left: 9vh;
+}
+#txtArgomenti{
+    margin-left: 2vh;
+}
 .testoSelezione:hover{
     animation: animTestoSelezione 0.5s forwards;
 }
@@ -466,13 +472,12 @@ h2{
 }
 
 #divSelezionato{
-    width: 68vw;
-    height: 59vh;
+    width: 73vw;
+    height: 58vh;
     border: 1px solid black;
     position: absolute;
-    margin-top: 20vh;
-    bottom: 0;
-    left: 64vh;
+    margin-top: 41vh;
+    left: 52vh;
     background-color: #474E68;
     border-radius: 20px;
     animation-name: animSelezionato;

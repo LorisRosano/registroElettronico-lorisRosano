@@ -1,12 +1,14 @@
+var nomeUtente;
+
 window.onload = () => {
 
 
     
     $(".divsSelezione").on("click", function(){
         let divSelezionato = $("#divSelezionato");
-        divSelezionato.animate({height: "50vh", width: "98.7vw", left: "-63vh", top: "20vh"}, 1000);
-        $("#divSinistra").animate({transform: "translateX(-50vh)"}, 1000);
+        divSelezionato.animate({ width: "98.7vw", left: "1vh", top: "120vw"}, 1000);
         $("#divDestra").animate({left: "50vw"}, 1000);
+        $("#divSinistra").animate({height: "38vh"}, 1000);
     });
     function sus(btn){
         $(".btnLogin").siblings("imgUtente").toggleClass("sus");
@@ -32,6 +34,8 @@ window.onload = () => {
         inviaRichiesta("GET", "login.php", {"user": username, "pass": CryptoJS.MD5(password)}
         ).then((response) => {
             response = response.data;
+            nomeUtente = response.nome + response.cognome;
+            alert(nomeUtente)
             if(response.length == 0){
                 swal({
                     title: "Attenzione!",
