@@ -1,9 +1,7 @@
-var nomeUtente;
+
 
 window.onload = () => {
-
-
-    
+    var nomeUtente;
     $(".divsSelezione").on("click", function(){
         let divSelezionato = $("#divSelezionato");
         divSelezionato.animate({ width: "98.7vw", left: "1vh", top: "120vw"}, 1000);
@@ -16,9 +14,9 @@ window.onload = () => {
     $(".btnLogin").on("mouseover", () => {sus(this)});
     $(".btnLogin").on("mouseout", () => {sus(this)});
     $("#login-btn").on("click", () => {
-        let username = $("#username").val();
-        let password = $("#password").val();
-        if(username === "" || password === ""){
+        let user = $("#username").val();
+        let pass = $("#password").val();
+        while(user === "" || pass === ""){
             swal({
                 title: "Attenzione!",
                 text: "Compilare tutti i campi!",
@@ -29,13 +27,18 @@ window.onload = () => {
                 closeOnEsc: false,
                 className: "swal-bg-red"
             });
-            return;
         } 
-        inviaRichiesta("GET", "login.php", {"user": username, "pass": CryptoJS.MD5(password)}
+        pass = CryptoJS.MD5(pass);
+        inviaRichiesta("GET", "login.php", {user, pass}
         ).then((response) => {
             response = response.data;
-            nomeUtente = response.nome + response.cognome;
-            alert(nomeUtente)
+            let nome = response[0].nome;
+            nome = nome[0].toUpperCase() + nome.substring(1);
+            let cognome = response[0].cognome;
+            cognome = cognome[0].toUpperCase() + cognome.substring(1);
+            //console.log(nome + " " + cognome);
+            nomeUtente = nome + " " + cognome;
+            //console.log(nomeUtente);
             if(response.length == 0){
                 swal({
                     title: "Attenzione!",
@@ -61,16 +64,33 @@ window.onload = () => {
                     className: "swal-bg-red"
                 });
                 setTimeout(() => {
+                    console.log(nomeUtente);
+                    Session["UserName"] = nomeUtente;
                     window.location = "paginaStudente.html";
-                }, 1000);
+                    $("#h2Benvenuto").text(nomeUtente);
 
-                
+                }, 1000);
             }
         })
-        .catch(errore);    
+        .catch(console.log(errore))
     });
 
-    
+    $(".divsSelezione").on("click", function(){
+        $("#iconClose").animate({opacity: "100%"}, 1000);
+    })
+    $("#iconClose").on("click", function(){
+        let divSelezionato = $("#divSelezionato");
+        divSelezionato.animate({ width: "73vw", left: "52vh", top: "0vw"}, 1000);
+        $("#divDestra").animate({left: "50vw"}, 1000);
+        $("#divSinistra").animate({height: "98vh"}, 1000);
+        $("#iconClose").animate({opacity: "0%"}, 1000);
+    })
+
+    $("#divAnagrafico").on("click", function (){
+        $("#contentAnagrafico").animate({opacity: "100%"}, 1000);
+        //crea una richiesta che mi con
+
+    })
 };
 function apriPaginaLoginStudente(){
     window.location = "studente.html";
