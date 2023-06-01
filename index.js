@@ -65,7 +65,6 @@ window.onload = () => {
                 });
                 setTimeout(() => {
                     console.log(nomeUtente);
-                    Session["UserName"] = nomeUtente;
                     window.location = "paginaStudente.html";
                     $("#h2Benvenuto").text(nomeUtente);
 
@@ -88,7 +87,19 @@ window.onload = () => {
 
     $("#divAnagrafico").on("click", function (){
         $("#contentAnagrafico").animate({opacity: "100%"}, 1000);
-        //crea una richiesta che mi con
+        //Crea una richiesta che va a prendere i dati dell'anagrafica
+        inviaRichiesta("GET", "anagrafica.php", {
+            "user": "1"
+        }).then((response) => {
+            response = response.data;
+            console.log(response);
+            $("#nome").text(response[0].nome);
+            $("#cognome").text(response[0].cognome);
+            $("#user").text(response[0].user);
+            $("#classe").text(response[0].classe);
+            $("#residenza").text(response[0].residenza);
+            $("#indirizzo").text(response[0].indirizzo);
+        })
 
     })
 };
