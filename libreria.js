@@ -31,12 +31,12 @@ function inviaRichiesta(method, url, parameters={}) {
 }
 
 function errore(err) {
-	if(!err.response) 
-		alert("Connection Refused or Server timeout");	
+	if (!err.response)
+		Swal.fire("Connection Refused or Server timeout")
 	else if (err.response.status == 200)
-        alert("Formato dei dati non corretto : " + err.response.data);
-    else{
-        alert("Server Error: " + err.response.status + " - " + err.response.data);
-	}
+		Swal.fire("Formato dei dati non corretto : " + err.response.data)
+	else if (err.response.status == 403)
+		window.location.href = "login.html"
+	else Swal.fire("Server Error: " + err.response.status + " - " + err.response.data)
 }
 
