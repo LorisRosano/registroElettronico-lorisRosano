@@ -7,16 +7,30 @@
     <script src="libreria.js"></script>
     <script src="index.js"></script>
     <script src="paginaStudente.js"></script>
+    <script src="select/selct.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="agg.css"/>
+    <link rel="stylesheet" href="select/select.css">
+    <link rel="stylesheet" href="select/select.css">
+    <script src="select/selct.js"></script>
     <title>Registro Elettronico - Studente</title>
 </head>
 <body class="flex-row">
     <div id="divSinistra">
+        <span class="material-symbols-outlined" id="logoutIcon" onclick="logout()">
+            logout
+            </span>
         <h1 id="h1Benvenuto"> Benvenuto </h1>
         <h2 id="h2Benvenuto"> </h2>
+        <h2 id="h2DataDiOggi"></h2>
+        <div id="divAnnoScolastico">
+            <h2 id="h2AnnoScolastico">Anno Scolastico</h2>
+            <h2 id="h2Anno">2022/2023</h2>
+        </div>
+        
+        <h2 id="h2Scuola"> 83003390040 - ISTITUTO ISTRUZIONE SUPERIORE G. VALLAURI </h2>
     </div>
     <div class="flex-col">
         <div id="divDestra">
@@ -32,64 +46,236 @@
                 <p class="testoSelezione"> Argomenti </p>
                 <img src="img/backpack.png" width="150vw" height="150vh" id="userImg">
             </div>
-            <div id="divMaterie" class="divsSelezione">
-                <p class="testoSelezione" id="txtMaterie"> Materie </p>
-                <img src="img/books.png" width="150vw" height="150vh" id="userImg">
-            </div>
             <div id="divAssenze" class="divsSelezione">
                 <p class="testoSelezione" id="txtAssenze"> Assenze </p>
                 <img src="img/assenze.png" width="150vw" height="150vh" id="userImg">
             </div>
             
         </div>
-        <div id="divSelezionato" class="flex-col">
+        <div id="divSelezionato"  class="flex-col">
             <span class="material-symbols-outlined" id="iconClose">
                 close
                 </span>
             <div id="divContent">
                 <div id="contentAnagrafico" class="contents">
                     <table id="tabellaAnagrafico">
-                        <tr>
-                            <td>Nome</td>
-                            <td id="nome"></td>
+                        <tr class="trAnagrafico">
+                            <td class="tdIntestazione">Nome</td>
+                            <td id="nome" class="tdInfo"></td>
                         </tr>
-                        <tr>
-                            <td>Cognome</td>
-                            <td id="cognome"></td>
+                        <tr >
+                            <td class="tdIntestazione">Cognome</td>
+                            <td id="cognome" class="tdInfo"></td>
                         </tr>
-                        <tr>
-                            <td>User</td>
-                            <td id="user"></td>
+                        <tr >
+                            <td class="tdIntestazione">User</td>
+                            <td id="user" class="tdInfo"></td>
                         </tr>
-                        <tr>
-                            <td>Classe</td>
-                            <td id="classe"></td>
+                        <tr >
+                            <td class="tdIntestazione">Classe</td>
+                            <td id="classe" class="tdInfo"></td>
                         </tr>
-                        <tr>
-                            <td>Residenza</td>
-                            <td id="residenza"></td>
+                        <tr >
+                            <td class="tdIntestazione">Residenza</td>
+                            <td id="residenza" class="tdInfo"></td>
                         </tr>
-                        <tr>
-                            <td>Indirizzo</td>
-                            <td id="indirizzo"></td>
+                        <tr >
+                            <td class="tdIntestazione">Indirizzo</td>
+                            <td id="indirizzo" class="tdInfo"></td>
                         </tr>
                     </table>
     
                 </div>
                 <div id="contentVoti" class="contents">
-                    
+                    <div class="pseudoSelect flexCol" id="selSimbolo" >
+                        <div class="selectDesc" onclick="espandiSelect($(this))">&nbsp;Scegli Una Materia</div>
+                        <div class="selectBody flexRow" tabindex="0" onclick="espandiSelect($(this))">
+                            <span class="testoSelect">Tutte</span>
+                            <span class="material-symbols-outlined" onclick="chkTrasforma($(this))">expand_more</span>
+                        </div>
+                        <div class="selectOptions flexCol">
+                            <div class="option selezionata" valore="0">
+                                <span>Tutte</span>
+                                <span class="selectChk material-symbols-outlined">done</span>
+                            </div>
+                            <div class="option" id="1">
+                                <span>Lingua e Letteratura Ita</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="2">
+                                <span>Storia</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="3">
+                                <span>Inglese</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="4">
+                                <span>Matematica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="5">
+                                <span>Educazione Fisica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="6">
+                                <span>Religione</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="11">
+                                <span>Tecnologie Informatiche</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="12">
+                                <span>Fisica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="13">
+                                <span>Chimica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="14">
+                                <span>Disegno</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="21">
+                                <span>Informatica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="22">
+                                <span>Sistemi e Reti</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="23">
+                                <span>Tecnologie</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="24">
+                                <span>Telecomunicazioni</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="25">
+                                <span>Gestione Progetto</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="divMedia"></div>
+                    <table id="tableVoti">
+                        <thead>
+                            <tr id="trVoti">
+                                <th>Voto</th>
+                                <th>Materia</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        
+                        
+                    </table>
                 </div>
-                <div id="contentArgomenti" class="contents">
-    
+                <div id="contentArgomenti" class="contents flex-col">
+                    <div class="pseudoSelect flexCol" id="selSimbolo" >
+                        <div class="selectDesc" onclick="espandiSelect($(this))">&nbsp;Scegli Una Materia</div>
+                        <div class="selectBody flexRow" tabindex="0" onclick="espandiSelect($(this))">
+                            <span class="testoSelect">Tutte</span>
+                            <span class="material-symbols-outlined" onclick="chkTrasforma($(this))">expand_more</span>
+                        </div>
+                        <div class="selectOptions flexCol">
+                            <div class="option selezionata" valore="0">
+                                <span>Tutte</span>
+                                <span class="selectChk material-symbols-outlined">done</span>
+                            </div>
+                            <div class="option" id="1">
+                                <span>Lingua e Letteratura Ita</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="2">
+                                <span>Storia</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="3">
+                                <span>Inglese</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="4">
+                                <span>Matematica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="5">
+                                <span>Educazione Fisica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="6">
+                                <span>Religione</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="11">
+                                <span>Tecnologie Informatiche</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="12">
+                                <span>Fisica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="13">
+                                <span>Chimica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="14">
+                                <span>Disegno</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="21">
+                                <span>Informatica</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="22">
+                                <span>Sistemi e Reti</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="23">
+                                <span>Tecnologie</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="24">
+                                <span>Telecomunicazioni</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                            <div class="option" id="25">
+                                <span>Gestione Progetto</span>
+                                <span class="selectChk material-symbols-outlined"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="divNoArgomenti"></div>
+                    <table id="tableArgomenti">
+                        <thead>
+                            <tr id="trArgomenti">
+                                <th>Argomento</th>
+                                <th>Materia</th>
+                                <th>Data</th>
+                            </tr>
+                        </thead>
+                        
+                        
+                    </table>
                 </div>
                 <div id="contentMaterie" class="contents">
     
                 </div>
                 <div id="contentAssenze" class="contents">
-    
+                    <h2>Assenze</h2>
+                    <h4>Da Giustificare</h4>
+                    <div id="daGiustificare" class="flex-row"></div>
+                    <h4>Giustificate</h4>
+                    <div id="giustificate" class="flex-row"></div>
                 </div>
             </div>
         </div>
     </div>
+    
+    
 </body>
 </html>

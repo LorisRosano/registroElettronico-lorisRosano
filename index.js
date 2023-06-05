@@ -11,7 +11,7 @@ window.onload = () => {
     $("#login-btn").on("click", () => {
         let user = $("#username").val();
         let pass = $("#password").val();
-        while(user === "" || pass === ""){
+        if(user === "" || pass === ""){
             swal({
                 title: "Attenzione!",
                 text: "Compilare tutti i campi!",
@@ -20,8 +20,9 @@ window.onload = () => {
                 timer: 3000,
                 closeOnClickOutside: false,
                 closeOnEsc: false,
-                className: "swal-bg-red"
+                className: "swal-bg-change"
             });
+            return;
         } 
         pass = CryptoJS.MD5(pass);
         inviaRichiesta("GET", "login.php", {user, pass})
@@ -35,7 +36,7 @@ window.onload = () => {
                     timer: 3000,
                     closeOnClickOutside: false,
                     closeOnEsc: false,
-                    className: "swal-bg-red"
+                    className: "swal-bg-change"
                 });
             }
             else{
@@ -47,12 +48,12 @@ window.onload = () => {
                 swal({
                     title: "Benvenuto!",
                     text: "Login effettuato con successo!",
-                    icon: "success",
+                    icon: 'success',
                     button: "Ok",
                     timer: 3000,
                     closeOnClickOutside: false,
                     closeOnEsc: false,
-                    className: "swal-bg-red"
+                    className: "swal-bg-change"
                 });
                 
                 setTimeout(() => {
@@ -75,20 +76,6 @@ function apriPaginaLoginStudente(){
 function ritornaHome(){
     window.location = "index.php";
 }
-function cambiaPassword(){
-    let divLogin = $(".login-container");
-    divLogin.animate({height: "toggle", opacity: "toggle"}, "slow", () => {
-        let aus = $("#divLogin").children().not(".nascosto");
-        let aus2 = $("#divLogin").children(".nascosto");
-        aus.toggleClass("nascosto");
-        aus2.toggleClass("nascosto");
-        console.log(aus);
-    });
-    divLogin.animate({height: "toggle", opacity: "toggle"}, "slow");
-}
-function apriDivSelezionato(){
-   
-    
-}
+
 
 

@@ -1,0 +1,160 @@
+.flexCol, .flexRow{
+    display: flex;
+}
+
+.flexCol{
+    flex-direction: column;
+}
+
+.selectOptions::-webkit-scrollbar-thumb {
+    background: #474e68;
+    border-top: 3rem solid transparent;
+    border-bottom: 3rem solid transparent;
+    background-clip: padding-box; 
+}
+  
+.selectOptions::-webkit-scrollbar-thumb:hover {
+    background: #474e68;
+    border-top: 3rem solid transparent;
+    border-bottom: 3rem solid transparent;
+    background-clip: padding-box;  
+}
+
+.selectOptions::-webkit-scrollbar {
+    width: 0.5rem;
+    display: initial !important; 
+}
+
+.pseudoSelect *{
+    transition: color 250ms;
+}
+  
+.selectBody > .material-symbols-outlined{
+    transform: scale(1.3) translateY(-0.3rem);
+    transition: all 0.3s ease-in-out, color 10ms ease-in-out;
+}
+  
+.pseudoSelect{
+    --borderRadius: 1rem;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    font-size: 1.1rem;
+    height: 3.8rem;
+    width: 100%;
+    border-radius: var(--borderRadius);
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    user-select: none;
+    transition: box-shadow 0.3s ease-in-out;
+    color: #474e68;
+}
+  
+.pseudoSelect > *{
+    cursor: pointer;
+    border: 2px solid #3c3c3c76;
+    width: inherit;
+}
+  
+.selectBody{
+    background-color: #fff;
+    color: inherit;
+    height: inherit;
+    padding-block: 0.5rem;
+    transition: all 0.3s ease-in-out;
+    border-radius: var(--borderRadius);
+    padding-inline: 1.5rem;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.pseudoSelect:hover{
+    box-shadow: 0 0 3rem #0000001f;
+}
+
+.selectBody:hover{
+    filter: drop-shadow(0 0 1rem #00000037);
+}
+  
+.selectBody:focus, .focus{
+    filter: drop-shadow(0 0 1rem #00000037);
+    border: 2px solid #474e68;
+    outline: #474e6840 0.2rem solid;
+}
+  
+.selectOptions{
+    position: absolute;
+    filter: drop-shadow(0 0 1rem #00000037);
+    box-shadow: 0 0 3rem #00000039;
+    top: 4.5rem;
+    border-radius: var(--borderRadius);
+    height: 0px;
+    border: 0;
+    transition: outline 0.3s ease-in-out, height 0.5s ease-in-out;
+    overflow-y: overlay;
+    width: calc(100% - 0.5rem);
+    overflow-x: hidden;
+    background-color: #FFF;
+}
+
+.selectOptions img{
+    height: 100%;
+    width: 100%;
+    transform: scale(3) translateX(0.2rem);
+}
+  
+.option{
+    transition: all 0.3s ease-in-out;
+    padding: 0.5rem;
+    padding-inline: 1.5rem;
+    background-color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(100% + 0.5rem);
+    min-height: 3rem;
+    color: #474e68;
+}
+
+.option span:not(.selectChk){
+    display: flex;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.option span:first-of-type{
+    flex-grow: 1;
+}
+  
+.pseudoSelect .option:first-of-type{
+    padding-top: 1rem;
+}
+  
+.pseudoSelect .option:last-of-type{
+    padding-bottom: 1rem;
+}
+  
+.option:hover{
+   filter: drop-shadow(0 0 1rem #00000037);
+}
+  
+.selectDesc{
+    color: inherit;
+    position: absolute;
+    background-color: transparent;
+    border: 0;
+    padding: 0.5rem 0 0 1.5rem;
+    font-size: 0.8rem;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.testoSelect, .option{
+    white-space: nowrap;
+    overflow: hidden;
+}
+.option .material-symbols-outlined{
+    color: inherit;
+}
